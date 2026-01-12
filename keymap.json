@@ -1,0 +1,85 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // Terminal
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "ctrl-/": "workspace::ToggleBottomDock",
+    },
+  },
+
+  // Window navigation
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      // Window motions
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+
+  // Left Dock (project panel, git, etc.)
+  {
+    "context": "ProjectPanel || (Editor && vim_mode == normal)",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+    },
+  },
+
+  // Quick exit from INSERT mode
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::SwitchToNormalMode",
+    },
+  },
+
+  // Vim
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // Lazygit
+      "space g g": [
+        "task::Spawn",
+        {
+          "task_name": "lazygit",
+          "reveal_target": "center",
+        },
+      ],
+
+      // Markdown
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+
+      // Telescope
+      "space f f": "file_finder::Toggle",
+      "space f a": "workspace::NewSearch",
+
+      // Format buffer
+      "space c f": "editor::Format",
+
+      // Save file
+      "space w": "workspace::Save",
+
+      // Close buffer
+      "space c": "pane::CloseActiveItem",
+
+      // Close Window
+      "space q q": "workspace::CloseWindow",
+
+      // Quit Zed
+      "space q Q": "zed::Quit",
+
+      // Terminal
+      "space t t": "workspace::ToggleBottomDock",
+    },
+  },
+]
